@@ -1,4 +1,5 @@
-Homework #1: Native Program
+Android project 
 ===============
+Repository for the mobile application development at BJTU
 
-Android Project
+"Android Project"
