@@ -2,28 +2,27 @@
 using namespace android;
 using namespace hello_world;
 
-// Client proxy
 namespace hello_world {
 
-    BpHWService::BpHWService(const sp<IBinder>& impl ):BpInterface<IHWService>(impl)
+    BpService::BpService(const sp<IBinder>& impl ):BpInterface<IService>(impl)
     {
 
     }
 
-    char* BpHWService::getName()
+    char* BpService::getName()
     {
         Parcel data, reply;
-        data.writeInterfaceToken(IHWService::getInterfaceDescriptor());
+        data.writeInterfaceToken(IService::getInterfaceDescriptor());
         remote()->transact(GET_NAME, data, &reply);
         reply.readExceptionCode();
         return (char*)reply.readCString();
     }
 
-    char* BpHWService::sayHello()
+    char* BpService::hello()
     {
         Parcel data, reply;
-        data.writeInterfaceToken(IHWService::getInterfaceDescriptor());
-        remote()->transact(SAY_HELLO, data, &reply);
+        data.writeInterfaceToken(IService::getInterfaceDescriptor());
+        remote()->transact(GET_HELLO, data, &reply);
         reply.readExceptionCode();
         return (char*)reply.readCString();
     }
@@ -43,11 +42,10 @@ int main(int argc, char *argv[])
         sleep(1);
     }while(true);
 
-    const sp<IHWService>& bts = interface_cast<IHWService>(binder);
-    ALOGE("Helloworldclient is starting....."); 
-
-    ALOGE("Asked service for name, it responded: %s",bts->getName());
-    ALOGE("Asked to say hello, service responded: %s",bts->sayHello());
+    const sp<IService>& bts = interface_cast<IService>(binder);
+    ALOGE("The Client is starting....."); 
+    ALOGE("Service name: %s",bts->getName());
+    ALOGE("Say hello: %s",bts->hello());
 
     return 0;
 }

@@ -5,19 +5,16 @@
 
 namespace hello_world {
     
-    class BnHWService: public BnInterface<IHWService>
+    class BnService: public BnInterface<IService>
     {
         public:
-            virtual status_t onTransact( uint32_t code,
-                    const Parcel& data,
-                    Parcel* reply,
-                    uint32_t flags = 0);
+            virtual status_t onTransact( uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags = 0);
     };
-    class HWService : public BnHWService
+    class Service : public BnService
     {
         public:
             virtual char* getName();
-            virtual char* sayHello();
+            virtual char* hello();
     };
 }
 

@@ -7,12 +7,8 @@ using namespace android;
 
 namespace hello_world {
 
-    /*
-     * For META implementation
-     *  Depend on API and Bp part
-     */
-    IMPLEMENT_META_INTERFACE(HWService,META_INTERFACE_NAME);
+	IMPLEMENT_META_INTERFACE(Service,META_INTERFACE_NAME);
 
-}//end of namespace hello_world
+}
 
 #endif

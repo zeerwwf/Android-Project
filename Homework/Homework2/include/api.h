@@ -14,42 +14,34 @@
 using namespace android;
 
 #define SERVICE_NAME "android.binder.example"
-#define META_INTERFACE_NAME "android.binder.example.IHWService"
+#define META_INTERFACE_NAME "android.binder.example.IService"
 
 namespace hello_world {
 
-    // function ID used for invocation
-    enum DEMO_API_ENUM{
-        GET_NAME=IBinder::FIRST_CALL_TRANSACTION, SAY_HELLO
+    enum DEMO_API_ENUM
+    {
+        GET_NAME=IBinder::FIRST_CALL_TRANSACTION, GET_HELLO
     };
 
-    /**
-     * Binder Shared interface, stub code
-     */
-    class IHWService : public IInterface
+    class IService : public IInterface
     {
         public:
-            DECLARE_META_INTERFACE(HWService);
+            DECLARE_META_INTERFACE(Service);
 
-            /*
-             * Service API
-             */
             virtual char* getName() = 0;
-            virtual char* sayHello() = 0;
+            virtual char* hello() = 0;
     };
 
-    /*
-     * The proxy between the Client and Server
-     */
-    class BpHWService : public BpInterface<IHWService>
+
+    class BpService : public BpInterface<IService>
     {
         public:
-            BpHWService(const sp<IBinder>& impl );
+            BpService(const sp<IBinder>& impl );
             virtual char* getName();
-            virtual char* sayHello();
+            virtual char* hello();
     };
 
 
-}//end of namespace hello_world
+}
 
 #endif //end of ifndef __DEMO_BINDER_API__
