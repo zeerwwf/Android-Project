@@ -3,5 +3,5 @@
 
 int main(int argc, char **argv)
 {
-  ALOGE("Hello world!"); 
+  ALOGE("Test!"); 
 }
