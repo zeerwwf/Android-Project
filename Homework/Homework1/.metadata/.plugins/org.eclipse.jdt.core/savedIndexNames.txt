@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+/home/zeerwwf/Documents/GoogleAndroid/external/NativeProgram/.metadata/.plugins/org.eclipse.jdt.core
-2358283662.index
-3927879410.index
