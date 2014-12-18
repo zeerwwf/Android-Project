@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FibonacciService</string>
+    <string name="permission_desc">The ability to invoke the fibonacci service and execute fibonacci computations.</string>
+</resources>
