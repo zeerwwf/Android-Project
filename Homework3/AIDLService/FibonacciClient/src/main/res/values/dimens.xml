@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="result_font_size">80sp</dimen>
-    <dimen name="time_font_size">20sp</dimen>
-    <dimen name="n_font_size">28sp</dimen>
-    <dimen name="n_margin">10dp</dimen>
-    <dimen name="button_margin">8dp</dimen>
-    <dimen name="layout_padding">12dp</dimen>
-</resources>
